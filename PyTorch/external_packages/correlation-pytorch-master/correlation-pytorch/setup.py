@@ -33,7 +33,7 @@ import os
 from setuptools import setup, find_packages
 from torch.utils.cpp_extension import CppExtension, BuildExtension
 
-this_file = os.path.dirname(__file__)
+this_file = os.path.join(os.path.dirname(__file__), src)
 
 setup(
     name="correlation_package",
@@ -48,6 +48,7 @@ setup(
     ext_modules=[
         CppExtension(
             name="",  # Name of the compiled extension
+            sources=[os.path.join(this_file, "corr.c"),os.path.join(this_file, "corr1d_cuda.c"),os.path.join(this_file, "corr1d.c")],  # Add your source files here
         )
     ],
     cmdclass={"build_ext": BuildExtension},
