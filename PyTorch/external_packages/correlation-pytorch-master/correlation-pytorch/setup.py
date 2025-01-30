@@ -33,7 +33,7 @@ import os
 from setuptools import setup, find_packages
 from torch.utils.cpp_extension import CppExtension, BuildExtension
 
-this_file = os.path.join(os.path.dirname(__file__), src)
+this_file = os.path.dirname(__file__) + '/src'
 
 setup(
     name="correlation_package",
